@@ -6,6 +6,9 @@
 ### 2. Initialize Laravel/Composer:
 
 ```
+composer update
+```
+```
 composer install
 ```
 ### 3. Create .env file
@@ -41,6 +44,11 @@ Take any login-Information into .env file (MSQL-Section)
 mysql.server start
 ```
 ### 7. Seed the DB (optional)
+(Hint: use "laravel" as db for this Project)
 ```
 php artisan db:seed
+```
+Reset root-user (for MySQL) on macos?
+```
+ALTER USER 'root'@'localhost' IDENTIFIED BY '';
 ```
