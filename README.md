@@ -8,7 +8,15 @@
 ```
 composer install
 ```
-### 3. Install NPM Dependencies
+### 3. Create .env file
+```
+cp .env.example .env
+```
+### 4. Start migration into .env file
+```
+php artisan migrate
+```
+### 5. Install NPM Dependencies
 Just like how we must install composer packages to move forward, we must also install necessary NPM packages to move forward. This will install Vue.js, Bootstrap.css, Lodash, and Laravel Mix.
 
 This is just like step 4, where we installed the composer PHP packages, but this is installing the Javascript (or Node) packages required. The list of packages that a repo requires is listed in the packages.json file which is submitted to the github repo. Just like in step 4, we do not commit the source code for these packages to version control (github) and instead we let NPM handle it.
@@ -22,4 +30,17 @@ sudo chown -R $(whoami) ~/.npm
 if you have a `npm update check failed` Message, please try the following codeline:
 ```
 sudo chown -R $(whoami):$(id -gn $(whoami)) /Users/andygellermann/.config 
+```
+### 6. DB-Support
+Dont forget MySQL Support:
+```
+brew install mariadb
+```
+Take any login-Information into .env file (MSQL-Section) 
+```
+mysql.server start
+```
+### 7. Seed the DB (optional)
+```
+php artisan db:seed
 ```
