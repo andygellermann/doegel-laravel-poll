@@ -43,6 +43,9 @@ Take any login-Information into .env file (MSQL-Section)
 ```
 mysql.server start
 ```
+```
+brew services start mariadb
+```
 ### 7. Seed the DB (optional)
 (Hint: use "laravel" as db for this Project)
 ```
