@@ -16,4 +16,17 @@ use App\Http\Controllers\PageController;
 Route::get('/', 'PageController@home');
 Route::get('/contact', 'PageController@contact');
 Route::get('/about', 'PageController@about');
+Route::get('/welcome', function() {
+
+    $liste = [
+        'Donnerstag: Abschiedskuchen',
+        'Donnerstag: Arbeitseinsatz bei Basti',
+        'Freitag: 10k-Lauf',
+        'Sonntag: Platzreife in Wilkendorf'
+    ];
+    return view('welcome', [
+        'liste' => $liste
+    ]);
+
+});
 

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title','Herzlich Willkommen!')
+@section('title','404 | missing thing')
 
 @section('content')
 
@@ -14,10 +14,11 @@
         Hello piepel!
         Hello piepel!
     </p>
-    <div>
-        @foreach($liste as $element)
-            <p>{{ $element }}</p>
-        @endforeach
-    </div>
+
+
+    <p>
+        {{ $lorem }}
+    </p>
+
 
 @endsection

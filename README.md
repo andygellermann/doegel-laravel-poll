@@ -52,3 +52,8 @@ Reset root-user (for MySQL) on macos?
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED BY '';
 ```
+
+#### Sourcelist
+- https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
+- https://mariadb.com/kb/en/library/installing-mariadb-on-macos-using-homebrew/
+- https://www.digitalocean.com/community/tutorials/how-to-reset-your-mysql-or-mariadb-root-password
