@@ -5,13 +5,11 @@
 @section('content')
 
     <p>
-        Contact Form,
-        Contact Form,
-        Contact Form,
-        Contact Form,
-        Contact Form,
-        Contact Form,
-        Contact Form!
+        <form action="/send" method="post">
+            {{ csrf_field() }}
+            <input type="password" name="pw">
+            <input type="submit" value="send">
+        </form>
     </p>
 
 @endsection

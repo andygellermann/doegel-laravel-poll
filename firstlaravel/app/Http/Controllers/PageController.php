@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use http\Env\Request;
+
 class PageController extends Controller
 {
     public function home(){
@@ -14,6 +16,12 @@ class PageController extends Controller
     }
     public function contact(){
         return view('contact');
+    }
+    public function send(){
+
+        return view('send',[
+            'result'=>request('pw')
+        ]);
     }
     public function about(){
         return view('about');
