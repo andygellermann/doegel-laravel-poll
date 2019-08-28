@@ -9,6 +9,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Styles -->
     <style>
@@ -84,6 +85,7 @@
 
         <div class="links">
             <a href="/">Home</a>
+            <a href="/projects">Projects</a>
             <a href="/welcome">Tasklist</a>
             <a href="/contact">Contact</a>
             <a href="/about">About</a>

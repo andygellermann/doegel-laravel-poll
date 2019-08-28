@@ -16,3 +16,7 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('quarktasche', function () {
+    $this->comment('Deine Quarktasche wurde soeben in den Backofen geschoben und ist in 15 Minuten bei dir!');
+})->describe('Zeige den Bestellstatus der Quaarktasche an!');

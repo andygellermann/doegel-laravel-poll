@@ -4,12 +4,13 @@
 
 @section('content')
 
-    <p>
-        <form action="/send" method="post">
-            {{ csrf_field() }}
-            <input type="password" name="pw">
-            <input type="submit" value="send">
-        </form>
-    </p>
+    <form action="/send" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+            <label for="title">Your Password</label>
+            <input type="password" class="form-control" id="title" name="pw">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Let's start</button>
+    </form>
 
 @endsection

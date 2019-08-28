@@ -22,6 +22,9 @@ Route::post('/send', 'PageController@send');
 
 Route::get('/about', 'PageController@about');
 
+// catch all significant states in "resource"
+Route::resource('projects','ProjectsController');
+
 Route::get('/welcome', function() {
 
     $liste = [
