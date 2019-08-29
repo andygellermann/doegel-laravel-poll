@@ -14,8 +14,13 @@
         Prio: {{ $task->priority }}
     </p>
     <p>
-        <a href="/tasks/{{ $task->id }}/edit" class="button btn-primary">
+        <a href="/tasks/{{ $task->id }}/edit" class="btn btn-primary">
             Edit Task
+        </a>
+    </p>
+    <p>
+        <a href="/tasks/{{ $task->id }}/delete" class="btn btn-danger">
+            Delete Task
         </a>
     </p>
 

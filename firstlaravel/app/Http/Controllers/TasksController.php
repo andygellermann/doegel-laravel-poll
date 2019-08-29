@@ -36,11 +36,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        $task = new Task();
-        $task->name = request('task');
-        $task->due = request('due');
-        $task->save();
-
+        Task::create(request(['name','due']));
         return redirect('/tasks');
     }
 
@@ -75,10 +71,7 @@ class TasksController extends Controller
      */
     public function update(Task $task)
     {
-        $task->name = request('task');
-        $task->due = date('Y-m-d 00:00:00');
-        $task->save();
-
+        $task->update(request(['name','due']));
         return redirect('/tasks');
     }
 

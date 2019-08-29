@@ -13,6 +13,9 @@
                 [<a href="/tasks/{{ $task->id }}/edit">
                     Edit
                 </a>]
+                [<a href="/tasks/{{ $task->id }}/delete">
+                    Delete
+                </a>]
             </li>
         @endforeach
     </ul>

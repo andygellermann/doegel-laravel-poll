@@ -11,8 +11,11 @@
         {{ $project->description }}
     </p>
     <p>
-        <a href="/projects/{{ $project->id }}/edit" class="button btn-primary">
+        <a href="/projects/{{ $project->id }}/edit" class="btn btn-primary">
             Edit Project
+        </a>
+        <a href="/projects/{{ $project->id }}/delete" class="btn btn-danger">
+            Delete Project
         </a>
     </p>
 

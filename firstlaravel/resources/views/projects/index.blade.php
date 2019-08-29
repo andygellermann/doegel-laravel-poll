@@ -17,6 +17,9 @@
                     [<a href="/projects/{{ $project->id }}/edit">
                         Edit
                     </a>]
+                    [<a href="/projects/{{ $project->id }}/delete">
+                        Delete
+                    </a>]
 
                 </li>
             @endforeach
