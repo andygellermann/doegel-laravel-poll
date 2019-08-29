@@ -50,9 +50,9 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $id)
+    public function show(Task $task)
     {
-        //
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -61,9 +61,8 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Task $task)
     {
-        $task = Task::find($id);
         return view('tasks.edit', compact('task'));
     }
 
@@ -74,9 +73,8 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Task $task)
     {
-        $task = Task::find($id);
         $task->name = request('task');
         $task->due = date('Y-m-d 00:00:00');
         $task->save();
@@ -90,9 +88,9 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $id)
+    public function destroy(Task $task)
     {
-        Task::find($id)->delete();
+        $task->delete();
         return redirect('/tasks');
     }
 }

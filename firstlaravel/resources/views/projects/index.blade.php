@@ -6,7 +6,19 @@
     <p>
         <ul style="text-align: left;">
             @foreach($projects as $project)
-                <li><strong><a href="/projects/{{ $project->id }}/edit">{{ $project->title }}</a>:</strong> {{ $project->description }}</li>
+                <li>
+                    <strong>
+                        <a href="/projects/{{ $project->id }}">
+                            {{ $project->title }}
+                        </a>
+                        :
+                    </strong>
+                    {{ $project->description }}
+                    [<a href="/projects/{{ $project->id }}/edit">
+                        Edit
+                    </a>]
+
+                </li>
             @endforeach
         </ul>
     </p>

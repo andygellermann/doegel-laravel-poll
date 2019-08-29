@@ -6,7 +6,14 @@
     <p>
     <ul style="text-align: left;">
         @foreach($tasks as $task)
-            <li><a href="/tasks/{{ $task->id }}/edit">{{ $task->name }}</a></li>
+            <li>
+                <a href="/tasks/{{ $task->id }}">
+                    {{ $task->name }}
+                </a>
+                [<a href="/tasks/{{ $task->id }}/edit">
+                    Edit
+                </a>]
+            </li>
         @endforeach
     </ul>
     </p>
