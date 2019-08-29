@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
 use App\Project;
+use Illuminate\Http\Request;
 
 // IMPORTANT: automate your creation and SAFE your time!!!
 // php artisan make:controller ProjectsController -r -m Project
@@ -17,7 +18,12 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
-    public function store()
+    public function create()
+    {
+        return view('projects.create');
+    }
+
+    public function store(Request $request)
     {
         $project = new Project();
         $project->title = request('title');
@@ -27,14 +33,15 @@ class ProjectsController extends Controller
         return redirect('/projects');
     }
 
-    public function create()
-    {
-        return view('projects.create');
-    }
-
     public function show()
     {
         //
+    }
+
+    public function edit($id)
+    {
+        $project = Project::find($id);
+        return view('projects.edit', compact('project'));
     }
 
     public function update($id)
@@ -55,11 +62,5 @@ class ProjectsController extends Controller
         Project::find($id)->delete();
 
         return redirect('/projects');
-    }
-
-    public function edit($id)
-    {
-        $project = Project::find($id);
-        return view('projects.edit', compact('project'));
     }
 }

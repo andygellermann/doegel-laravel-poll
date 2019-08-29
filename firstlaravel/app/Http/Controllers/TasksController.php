@@ -36,7 +36,12 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Task();
+        $task->name = request('task');
+        $task->due = request('due');
+        $task->save();
+
+        return redirect('/tasks');
     }
 
     /**
@@ -45,7 +50,7 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Task $id)
     {
         //
     }
@@ -56,7 +61,7 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $id)
+    public function edit($id)
     {
         $task = Task::find($id);
         return view('tasks.edit', compact('task'));
@@ -69,10 +74,11 @@ class TasksController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $id)
+    public function update($id)
     {
         $task = Task::find($id);
-        $task->name = request('name');
+        $task->name = request('task');
+        $task->due = date('Y-m-d 00:00:00');
         $task->save();
 
         return redirect('/tasks');

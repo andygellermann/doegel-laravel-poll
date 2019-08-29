@@ -11,7 +11,7 @@
             <input type="text" class="form-control" id="title" name="title" placeholder="Project title">
         </div>
         <div class="form-group">
-            <label for="description">Example textarea</label>
+            <label for="description">Project Details</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
 
