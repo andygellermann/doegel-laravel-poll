@@ -11,12 +11,19 @@
         {{ $project->description }}
     </p>
     <p>
-        <a href="/projects/{{ $project->id }}/edit" class="btn btn-primary">
-            Edit Project
-        </a>
-        <a href="/projects/{{ $project->id }}/delete" class="btn btn-danger">
-            Delete Project
-        </a>
+        <form style="display: inline;">
+            <a href="/projects/{{ $project->id }}/edit" class="btn btn-primary btn-sm">
+                Edit
+            </a>
+        </form>
+
+        <form action="/projects/{{ $project->id }}" method="post" style="display: inline;">
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-danger btn-sm">
+                Delete
+            </button>
+        </form>
     </p>
 
 
