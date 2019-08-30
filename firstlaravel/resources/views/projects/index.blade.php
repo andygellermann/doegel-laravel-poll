@@ -25,10 +25,35 @@
                 <a href="/projects/{{ $project->id }}">{{ $project->title }}</a>&nbsp;{{ $project->description }}
             </li>
             @endforeach
-            <li style="margin-bottom: 5px; list-style-type: none;">
-                <a href="/projects/create" class="btn btn-success btn-sm">new Project</a>
-            </li>
         </ul>
     </p>
+@if ($errors->any())
+    <div class="alert alert-warning" role="alert" style="text-align: left">
+        <h4 id="error">Error</h4>
+        <h5>Please check following fields:</h5>
+        @foreach($errors->all() as $error)
+            <p>{{ $error  }}</p>
+        @endforeach
+    </div>
+@endif
+    <div style="text-align: left">
+        <form action="/projects" method="post">
+
+            @csrf
+            <p>
+                <a href="https://laravel.com/docs/5.8/validation#available-validation-rules">Validation-Rules?</a>
+            </p>
+            <div class="form-group">
+                <label for="title">Title of your new Project</label>
+                <input type="text" class="form-control {{ $errors->has('title') ? ' is-invalid':'' }}" id="title" name="title" placeholder="Project title" autofocus value="{{ old('title') }}">
+            </div>
+            <div class="form-group">
+                <label for="description">Project Details</label>
+                <textarea class="form-control {{ $errors->has('description') ? ' is-invalid':'' }}" id="description" name="description" rows="3" >{{ old('description') }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-2">Create Project</button>
+        </form>
+    </div>
 
 @endsection

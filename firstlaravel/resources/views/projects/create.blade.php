@@ -8,7 +8,7 @@
         {{ csrf_field() }}
         <div class="form-group">
             <label for="title">Title of your new Project</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Project title">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Project title" autofocus>
         </div>
         <div class="form-group">
             <label for="description">Project Details</label>
