@@ -44,10 +44,11 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
-        $project->update(request(['title','description']));
+        $project->update(request()->validate([
+            'title' => ['required', 'min:5', 'max:64'],
+            'description' => ['required','min:10']
+        ]));
         return redirect('/projects');
-
-
     }
 
     public function destroy(Project $project)

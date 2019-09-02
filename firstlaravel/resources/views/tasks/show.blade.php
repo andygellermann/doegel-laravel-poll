@@ -24,5 +24,7 @@
         </a>
     </p>
 
+    @include ('errors')
+
 
 @endsection

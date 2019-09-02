@@ -63,6 +63,12 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+        .is-complete {
+            text-decoration: line-through;
+        }
+        form {
+            text-align: left;
+        }
     </style>
 </head>
 <body>

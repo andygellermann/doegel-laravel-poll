@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
 
-    // if you know what you do
-    // using:
-    // protected $guarded = [];
-    // then you must do:
-    // Project::create(request(['title','description']));
-    // ...for security reasons in your Controller Create-Method!
+    protected $guarded = [];
 
-    protected $fillable = ['title', 'description'];
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    public function addTask($task)
+    {
+        $this->tasks()->create('task');
+
+    }
 
 }

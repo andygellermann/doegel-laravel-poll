@@ -14,5 +14,12 @@ class Task extends Model
     // Task::create(request(['name','due','priority']));
     // ...for security reasons in your Controller Create-Method!
 
-    protected $fillable = ['name', 'due', 'priority'];
+    // protected $fillable = ['name', 'project_id', 'due', 'priority'];
+
+//    protected $guarded = [];
+    protected $fillable = ['name', 'project_id', 'due', 'priority'];
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

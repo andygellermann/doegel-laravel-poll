@@ -25,3 +25,7 @@ Route::post('/send', 'PageController@send');
 Route::resource('projects','ProjectsController');
 Route::resource('tasks','TasksController');
 
+// To receive Post(ed) Patch-Data you have to to next:
+Route::post('/projects/{project}/tasks','ProjectTasksController@store');
+Route::patch('/tasks/{task}','ProjectTasksController@update');
+
