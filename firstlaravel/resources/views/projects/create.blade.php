@@ -35,4 +35,6 @@
         <button type="submit" class="btn btn-primary mb-2">Create Project</button>
     </form>
 
+    @include ('errors')
+
 @endsection

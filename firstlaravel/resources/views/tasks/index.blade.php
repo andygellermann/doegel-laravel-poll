@@ -29,6 +29,9 @@
         @endforeach
     </ul>
     </p>
+
+    @include ('errors')
+
     <p>
 
     <form action="/tasks" method="post">

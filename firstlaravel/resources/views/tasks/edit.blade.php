@@ -23,4 +23,6 @@
         <button type="submit" class="btn btn-danger mb-2">Delete Task</button>
     </form>
 
+    @include ('errors')
+
 @endsection

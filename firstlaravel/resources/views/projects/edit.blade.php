@@ -26,4 +26,6 @@
         <button type="submit" class="btn btn-warning mb-2">Delete Project</button>
     </form>
 
+    @include ('errors')
+
 @endsection
