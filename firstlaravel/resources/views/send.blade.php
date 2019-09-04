@@ -1,11 +1,11 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('title','Dein geheimes Kennwort')
 
 @section('content')
 
-    <h1>
+    <h3>
         Lautet: {{ $result }}
-    </h1>
+    </h3>
 
 @endsection

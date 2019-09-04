@@ -1,24 +1,7 @@
-@extends('layout')
+@extends('layouts.app')
 
-@section('title','404 | missing thing')
+@section('title','Dashboard')
 
 @section('content')
-
-    <p>
-        Hello piepel!
-        Hello piepel!
-        Hello piepel!
-        Hello piepel!
-        Hello piepel!
-        Hello piepel!
-        Hello piepel!
-        Hello piepel!
-    </p>
-
-
-    <p>
-        {{ $lorem }}
-    </p>
-
-
+    You are logged in!
 @endsection

@@ -12,6 +12,10 @@
 */
 
 use App\Http\Controllers\PageController;
+use App\Repositories\UserRepository;
+Route::get('/twitter', function(\App\Twitter $twitter) {
+    dd($twitter);
+});
 
 Route::get('/', 'PageController@home');
 Route::get('/contact', 'PageController@contact');
@@ -30,3 +34,7 @@ Route::post('/projects/{project}/tasks','ProjectTasksController@store');
 Route::patch('/tasks/{task}','ProjectTasksController@update');
 
 
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout','Auth\LoginController@logout');
