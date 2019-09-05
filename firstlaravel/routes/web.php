@@ -17,7 +17,12 @@ Route::get('/twitter', function(\App\Twitter $twitter) {
     dd($twitter);
 });
 
-Route::get('/', 'PageController@home');
+Auth::routes();
+Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/logout','Auth\LoginController@logout');
+
+//Route::get('/', 'PageController@home');
 Route::get('/contact', 'PageController@contact');
 Route::get('/about', 'PageController@about');
 
@@ -35,6 +40,3 @@ Route::patch('/tasks/{task}','ProjectTasksController@update');
 
 
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/logout','Auth\LoginController@logout');

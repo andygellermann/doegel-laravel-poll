@@ -16,9 +16,7 @@ class Project extends Model
 
     public function addTask($task)
     {
-//        dd($task);
         $this->tasks()->create($task);
-
     }
 
 }
