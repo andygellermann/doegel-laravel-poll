@@ -20,10 +20,12 @@
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/jakub-onderka/php-console-highlighter" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/laravel/telescope" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/moontoast/math" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/firstlaravel/vendor/nikic/php-parser" />

@@ -83,6 +83,8 @@
       <path value="$PROJECT_DIR$/firstlaravel/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/firstlaravel/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/firstlaravel/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/firstlaravel/vendor/laravel/telescope" />
+      <path value="$PROJECT_DIR$/firstlaravel/vendor/moontoast/math" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
