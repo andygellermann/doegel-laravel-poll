@@ -9,6 +9,12 @@ class Project extends Model
 
     protected $guarded = [];
 
+    public function owner()
+    {
+//        return $this->belongsTo(User::class, 'id','owner_id');
+        return $this->belongsTo(User::class);
+    }
+
     public function tasks()
     {
         return $this->hasMany(Task::class);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
+use App\Mail\ProjectCreated;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -19,10 +20,12 @@ class ProjectsController extends Controller
 
     public function index()
     {
-        return view('projects.index', [
-            // get all projects of authenticated user
-            'projects' => auth()->user()->projects
-        ]);
+//        return view('projects.index', [
+//            // get all projects of authenticated user
+//            'projects' => auth()->user()->projects
+//        ]);
+        $projects = Project::where('owner_id', auth()->id())->get();
+        return view('projects.index', compact('projects'));
     }
 
     public function create()
@@ -35,8 +38,13 @@ class ProjectsController extends Controller
         $attributes = $this->validateProject();
         // wir übergeben noch unsere User_ID für den Eigentümer des Datensatzes
         $attributes['owner_id'] = auth()->id();
-        Project::create($attributes);
 
+        $project = Project::create($attributes);
+        dd($project);
+
+        \Mail::to($project->owner->email)->send(
+            new ProjectCreated($project)
+        );
         return redirect('/projects');
     }
 
