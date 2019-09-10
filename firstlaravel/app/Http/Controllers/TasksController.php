@@ -36,11 +36,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create(request()->validate([
-            'name' => ['required', 'min:5', 'max:64'],
-            'project_id' => ['required'],
-            'due' => ['required','min:19', 'max:64']
-        ]));
+        Task::create($this->validateTask());
         return back();
     }
 
@@ -92,5 +88,13 @@ class TasksController extends Controller
     {
         $task->delete();
         return redirect('/tasks');
+    }
+
+    public function validateTask(){
+        return request()->validate([
+            'name' => ['required', 'min:5', 'max:64'],
+            'project_id' => ['required'],
+            'due' => ['required','min:19', 'max:64']
+        ]);
     }
 }

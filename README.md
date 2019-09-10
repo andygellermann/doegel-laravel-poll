@@ -101,6 +101,9 @@ Authentication-Failure?
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '!!!YOURNEWPASSWORD!!!';
 ```
 
+### This Development uses Mailtrap.io
+https://mailtrap.io
+
 #### Sources
 - https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/
 - https://mariadb.com/kb/en/library/installing-mariadb-on-macos-using-homebrew/

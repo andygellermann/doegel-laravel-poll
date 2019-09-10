@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
-use App\Mail\ProjectCreated;
+use App\Events\ProjectCreated;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -36,15 +36,8 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         $attributes = $this->validateProject();
-        // wir übergeben noch unsere User_ID für den Eigentümer des Datensatzes
         $attributes['owner_id'] = auth()->id();
-
         $project = Project::create($attributes);
-        dd($project);
-
-        \Mail::to($project->owner->email)->send(
-            new ProjectCreated($project)
-        );
         return redirect('/projects');
     }
 

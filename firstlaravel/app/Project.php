@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\ProjectCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -9,9 +10,12 @@ class Project extends Model
 
     protected $guarded = [];
 
+    protected $dispatchesEvents = [
+        'created' => ProjectCreated::class
+    ];
+
     public function owner()
     {
-//        return $this->belongsTo(User::class, 'id','owner_id');
         return $this->belongsTo(User::class);
     }
 
