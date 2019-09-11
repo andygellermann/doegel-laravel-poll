@@ -12,9 +12,26 @@
 */
 
 use App\Http\Controllers\PageController;
+use App\Notifications\SubscriptionRenewalFailed;
+use Illuminate\Notifications\RoutesNotifications;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notification;
 use App\Repositories\UserRepository;
+use App\Notifications\slackNotification;
+
+Route::get('/slack', function () {
+    $user = App\User::first();
+    $user->notify(new slackNotification());
+    echo "Ich bin eine neue Slack-Notification!";
+});
+
 Route::get('/twitter', function(\App\Twitter $twitter) {
     dd($twitter);
+});
+
+Route::get('/wurst', function (){
+    $user = App\User::first();
+    $user->notify(new SubscriptionRenewalFailed());
 });
 
 Auth::routes();

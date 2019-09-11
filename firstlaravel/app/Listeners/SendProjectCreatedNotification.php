@@ -28,7 +28,7 @@ class SendProjectCreatedNotification
     public function handle(ProjectCreated $event)
     {
         \Mail::to($event->project->owner->email)->send(
-            new ProjectCreatedMail($event->project)
+            new ProjectCreatedMail($event->project,$event->project->title)
         );
     }
 }
