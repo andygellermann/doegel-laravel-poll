@@ -100,9 +100,28 @@ Authentication-Failure?
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '!!!YOURNEWPASSWORD!!!';
 ```
+### A. Integrate Slack-Notification
+Install slack notification via composer
+```
+composer require laravel/slack-notification-channel
+```
+Next create new Notification
+```
+php artisan make:notification slackNotification
+```
+
 
 ### This Development uses Mailtrap.io
 https://mailtrap.io
+For using Mailtrap, change your .env -File like below
+```
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=YOUR_CRYPT_KEY_USERNAME
+MAIL_PASSWORD=YOUR_CRYPT_KEY_PASSWORD
+MAIL_ENCRYPTION=null
+```
 
 #### Sources
 - https://devmarketer.io/learn/setup-laravel-project-cloned-github-com/

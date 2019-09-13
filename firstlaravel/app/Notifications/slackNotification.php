@@ -30,7 +30,7 @@ class slackNotification extends Notification
     public function toSlack($notifiable)
     {
         return (new SlackMessage)
-            ->content('A new visitor has visited to your application . $this->user->first(1->name)');
+            ->content('A new visitor has visited to your application');
     }
 
 
