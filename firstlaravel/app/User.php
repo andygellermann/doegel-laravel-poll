@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 class User extends Authenticatable
 {
@@ -45,5 +46,14 @@ class User extends Authenticatable
     public function projects()
     {
         return $this->hasMany(Project::class, 'owner_id');
+    }
+
+    public function isVerified()
+    {
+        return (bool) $this->email_verified_at;
+    }
+    public function isNotVerified()
+    {
+        return (bool) ! $this->isVerified();
     }
 }

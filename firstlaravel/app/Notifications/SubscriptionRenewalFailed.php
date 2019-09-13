@@ -56,7 +56,8 @@ class SubscriptionRenewalFailed extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'id' => '12938',
+            'value' => 'epic things in mind'
         ];
     }
 }
