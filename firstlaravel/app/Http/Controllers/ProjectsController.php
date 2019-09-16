@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
+use App\Events\ProjectCreated;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,11 @@ class ProjectsController extends Controller
 
     public function index()
     {
-        $projects = Project::where('owner_id',auth()->id())->get();
+//        return view('projects.index', [
+//            // get all projects of authenticated user
+//            'projects' => auth()->user()->projects
+//        ]);
+        $projects = Project::where('owner_id', auth()->id())->get();
         return view('projects.index', compact('projects'));
     }
 
@@ -30,48 +35,48 @@ class ProjectsController extends Controller
 
     public function store(Request $request)
     {
-        $attributes = request()->validate([
-            'title' => ['required', 'min:5', 'max:64'],
-            'description' => ['required','min:10']
-        ]);
+        $attributes = $this->validateProject();
         $attributes['owner_id'] = auth()->id();
-
-        Project::create($attributes);
-
+        $project = Project::create($attributes);
         return redirect('/projects');
     }
 
     public function show(Project $project)
     {
         /*
-         * Following auth-check method find in Policies/ProjectPolicy.php
+         * auth-check method called below you find in Policies/ProjectPolicy.php
          * Create Policy by using model-Template?
-         * php artisan make:policy ProjectPolica --model=Project
+         * php artisan make:policy ProjectPolice --model=Project
+         * --model= create a Policy for a Model by "Boilerplate"
          * */
-        $this->authorize('view', $project);
-//        abort_if($project->owner_id !== auth()->id(), 403);
+//        $this->authorize('update', $project);
         return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
     {
 //        $this->authorize('update', $project);
-        abort_if($project->owner_id !== auth()->id(), 403);
         return view('projects.edit', compact('project'));
     }
 
     public function update(Project $project)
     {
-        $project->update(request()->validate([
-            'title' => ['required', 'min:5', 'max:64'],
-            'description' => ['required','min:10']
-        ]));
+        $project->update($this->validateProject());
         return redirect('/projects');
     }
 
     public function destroy(Project $project)
     {
+//        $this->authorize('update', $project);
         $project->delete();
         return redirect('/projects');
+    }
+
+    public function validateProject()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:5', 'max:64'],
+            'description' => ['required','min:10']
+        ]);
     }
 }

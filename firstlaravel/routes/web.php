@@ -12,9 +12,26 @@
 */
 
 use App\Http\Controllers\PageController;
+use App\Notifications\SubscriptionRenewalFailed;
+use Illuminate\Notifications\RoutesNotifications;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notification;
 use App\Repositories\UserRepository;
+use App\Notifications\slackNotification;
+
+Route::get('/slack', function () {
+    $user = App\User::first();
+    $user->notify(new slackNotification());
+    echo "Ich bin eine neue Slack-Notification!";
+});
+
 Route::get('/twitter', function(\App\Twitter $twitter) {
     dd($twitter);
+});
+
+Route::get('/wurst', function (){
+    $user = App\User::first();
+    $user->notify(new SubscriptionRenewalFailed());
 });
 
 Auth::routes();
@@ -31,11 +48,11 @@ Route::post('/send', 'PageController@send');
 
 // ooh, that's impressive!
 // catch all significant states in "resource"!
-Route::resource('projects','ProjectsController');
-Route::resource('tasks','TasksController');
+Route::resource('projects','ProjectsController')->middleware('auth');
+Route::resource('tasks','TasksController')->middleware('auth');
 
 // To receive Post(ed) Patch-Data you have to to next:
-Route::post('/projects/{project}/tasks','ProjectTasksController@store');
+Route::post('/projects/{project}/tasks','ProjectTasksController@store')->middleware('can:update,project');
 Route::patch('/tasks/{task}','ProjectTasksController@update');
 
 
