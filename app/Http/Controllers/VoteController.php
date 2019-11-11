@@ -26,7 +26,7 @@ class VoteController extends Controller
     {
         $poll->showQuestions = (strtotime($poll->deadline) > time()) ? 1:0;
         $poll->voteSum = Question::where('poll_id',$poll->id)->sum('votes');
-        $poll->quotient = 100 / $poll->voteSum;
+        $poll->quotient = ($poll->voteSum > 0) ? 100 / $poll->voteSum:0;
         foreach($poll->question as $question){
             $question->percentage = $poll->quotient * $question->votes;
             $question->voteText = ($question->votes == 1) ? ' Stimme': ' Stimmen';
