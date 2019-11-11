@@ -25,7 +25,7 @@
                             <input name="votes" value="{{ $question->votes + 1 }}" type="hidden">
                             <input name="poll_id" value="{{ $poll->id }}" type="hidden">
                             <input name="fipr_token" value="" type="hidden">
-                            <label class="custom-control-label" for="option-{{ $question->id }}">{{ $question->text }} ({{ $question->votes }})</label>
+                            <label class="custom-control-label" for="option-{{ $question->id }}">{{ $question->text }}</label>
                         </div>
                     @endforeach
                 </div>
