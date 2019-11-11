@@ -27,7 +27,7 @@ Route::get('/logout','Auth\LoginController@logout');
 Route::get('/umfrage', 'VoteController@index');
 Route::get('/umfragen', 'VoteController@direktindex');
 Route::get('/umfrage/{poll}', 'VoteController@show')->where('poll','[0-9]');
-Route::patch('/umfrage/{poll}/vote', 'VoteController@update')->where('poll','[0-9]');
+Route::patch('/umfrage/{poll}', 'VoteController@update')->where('poll','[0-9]');
 
 Route::resource('polls','PollController')->middleware('auth');
 

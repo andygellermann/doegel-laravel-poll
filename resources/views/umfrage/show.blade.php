@@ -10,7 +10,7 @@
     <div id="votingCheck" style="display:none">
         @if ($poll->question->count())
 
-            <form method="post" action="/umfrage/{{ $poll->id }}/vote/">
+            <form method="post" action="/umfrage/{{ $poll->id }}">
                 @csrf
                 @method('PATCH')
                 <div class="list-group mx-5 my-3">
