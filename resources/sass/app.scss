@@ -1,0 +1,46 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// jQuery UI CSS
+@import '~jquery-ui/themes/base/all.css';
+
+// Bootstrap-Datepicker CSS
+@import "./bootstrap-datepicker3.min.css";
+
+// changes for sortable-function
+
+div.grip {
+    cursor: move !important;
+    cursor: -webkit-grab;
+    width: 30px;
+    text-align: right;
+}
+
+.dragged {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
+}
+
+div#sortable form.placeholder {
+    position: relative;
+    /** More form styles **/
+}
+div#sortable form.placeholder:before {
+    position: absolute;
+    /** Define arrowhead **/
+}
+#sortable { margin: 0; padding: 0; width: 100%; }
+#sortable form { height: 40px; }
+#sortable form div.input-group { /* position: absolute; */ }
+
+// extension for tasks
+.is-complete {
+    text-decoration: line-through;
+}
