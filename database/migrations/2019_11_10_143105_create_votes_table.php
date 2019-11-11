@@ -18,8 +18,6 @@ class CreateVotesTable extends Migration
             $table->unsignedBigInteger('poll_id');
             $table->string('fipr_token',32);
             $table->timestamps();
-
-            $table->timestamp('created_at')->useCurrent();
             $table->foreign('poll_id')->references('id')->on('polls')->onDelete('cascade');
         });
     }
