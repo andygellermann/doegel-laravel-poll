@@ -1,6 +1,6 @@
 # First Laravel Lesson
 
-## Steps to start coding on MacOSX
+## Steps to start coding on MacOSX (partially Windows...)
 
 ### 1. Clone repository
 ### 2. Initialize Laravel/Composer:
@@ -69,48 +69,8 @@ Do you have any problems?
 https://stackoverflow.com/questions/4359131/brew-install-mysql-on-macos
 ### 7. Install DB-Schema
 ```
-php artisan make:migration create_projects_table
-```
-Next:
-```
 php artisan migrate:install
 ```
-### 8. Update/Migrate new or changed DB-Schema from (pulled) repository
-Update:
-```
-php artisan migrate:fresh
-```
-Reset and re-run migrations:
-```
-php artisan migrate:refresh
-```
-"Panic" Rollback to last database migration?
-```
-php artisan migrate:rollback
-```
- 
-### 9. Seed the DB (optional)
-(Hint: use "laravel" as db for this Project)
-```
-php artisan db:seed
-```
-Authentication-Failure?
-
-> Reset root-user (for MySQL)!
-```
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '!!!YOURNEWPASSWORD!!!';
-```
-### A. Integrate Slack-Notification
-Install slack notification via composer
-```
-composer require laravel/slack-notification-channel
-```
-Next create new Notification
-```
-php artisan make:notification slackNotification
-```
-
-
 ### This Development uses Mailtrap.io
 https://mailtrap.io
 For using Mailtrap, change your .env -File like below
