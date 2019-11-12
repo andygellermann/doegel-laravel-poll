@@ -107,9 +107,9 @@
     var scenarios = ["availableScreenResolution", "canvas", "colorDepth", "cookies", "cpuClass", "deviceDpi", "doNotTrack", "indexedDb", "installedFonts", "language", "localIp", "localStorage", "pixelRatio", "platform", "plugins", "processorCores", "publicIp", "screenResolution", "sessionStorage", "timezoneOffset", "touchSupport", "userAgent", "webGl"];
     imprint.test(scenarios).then(function(e) {
         $("meta[name=fipr-token]").attr("content", e), $("input[name=fipr_token]").val(e), console.log(e);
-        var raw_id = {{ $poll->id ?? 0 }};
+        var poll_id = {{ $poll->id ?? 0 }};
         var cki_id = {{ $poll->cookie ?? 0 }};
-        var poll_id = (raw_id > 0) ? raw_id : cki_id;
+        e = (e > 0) ? e : cki_id;
         if ( poll_id > 0 && e ){
             $.ajax({
                 headers: {
