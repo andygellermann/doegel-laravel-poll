@@ -108,8 +108,6 @@
     imprint.test(scenarios).then(function(e) {
         $("meta[name=fipr-token]").attr("content", e), $("input[name=fipr_token]").val(e), console.log(e);
         var poll_id = {{ $poll->id ?? 0 }};
-        var cki_id = {{ $poll->cookie ?? 0 }};
-        e = (e) ? e : cki_id;
         if ( poll_id > 0 && e ){
             $.ajax({
                 headers: {
