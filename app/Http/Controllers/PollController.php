@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Events\PollCreated;
 use App\Poll;
 use Illuminate\Http\Request;
-use http\Cookie;
 
 class PollController extends Controller
 {
@@ -17,7 +16,6 @@ class PollController extends Controller
     public function index()
     {
         $polls = Poll::where('owner_id', auth()->id())->get();
-        $polls->cookie = substr(cookie::get('dogel_umfragen_session'),10,32);
         return view('polls.index', compact('polls'));
     }
     public function create()
