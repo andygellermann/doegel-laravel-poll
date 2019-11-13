@@ -9,7 +9,15 @@
         </h5>
         <div class="list-group mb-3">
             @foreach($polls as $poll)
-                <a class="list-group-item list-group-item-action" href="/umfrage/{{ $poll->id }}"><strong>&raquo; {{ $poll->title }}</strong> (bis {{ date('d.m.Y', strtotime($poll->deadline)) }})</a>
+                <a class="list-group-item list-group-item-action" href="/umfrage/{{ $poll->id }}">
+                    <strong>
+                        <span class="glyphicon glyphicon-check"></span>
+                        {{ $poll->title }}
+                    </strong>
+                    <em>
+                        (bis {{ date('d.m.Y', strtotime($poll->deadline)) }})
+                    </em>
+                </a>
             @endforeach
         </div>
     </div>
