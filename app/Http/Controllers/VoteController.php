@@ -13,7 +13,7 @@ class VoteController extends Controller
 
     public function index()
     {
-        $polls = Poll::all();
+        $polls = Poll::orderBy('created_at','desc')->take(5)->get();;
         return view('umfrage.index', compact('polls'));
     }
     public function direktindex()

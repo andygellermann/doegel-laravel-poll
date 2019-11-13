@@ -27,5 +27,8 @@
     },
     "peerDependencies": {
         "less": "^3.0.0"
+    },
+    "dependencies": {
+        "less": "^3.10.3"
     }
 }

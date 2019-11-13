@@ -12,21 +12,25 @@
                         <div class="row">
                             <div class="col-8 m-0 p-0">
                                 <h5 class="mt-2 mb-0 p-0">
-                                    <a href="/polls/{{ $poll->id }}">{{ $poll->title }}</a>
+                                    {{ $poll->title }}
                                 </h5>
                             </div>
                             <div class="col-4 text-right m-0 p-0">
                                 <form style="display: inline;">
-                                    <a href="/polls/{{ $poll->id }}/edit" class="btn btn-primary btn-sm">
-                                        Bearbeiten
+                                    <a href="/polls/{{ $poll->id }}/edit" class="btn btn-sm btn-primary">
+                                        <span class="glyphicon glyphicon-pencil"></span>
                                     </a>
                                 </form>
+
+                                <a href="/polls/{{ $poll->id }}" class="btn btn-sm btn-success">
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                </a>
 
                                 <form action="/polls/{{ $poll->id }}" method="post" style="display: inline;">
                                     {{ method_field('DELETE') }}
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm">
-                                        Löschen
+                                        <span class="glyphicon glyphicon-trash"></span>
                                     </button>
                                 </form>
                             </div>
