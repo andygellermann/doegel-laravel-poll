@@ -34,12 +34,6 @@ class PollController extends Controller
 
     public function show(Poll $poll)
     {
-        /*
-         * auth-check method called below you find in Policies/ProjectPolicy.php
-         * Create Policy by using model-Template?
-         * php artisan make:policy ProjectPolice --model=Project
-         * --model= create a Policy for a Model by "Boilerplate"
-         * */
         return view('polls.show', compact('poll'));
     }
 
@@ -53,14 +47,12 @@ class PollController extends Controller
     {
         $attributes = $this->validatePoll($poll);
         $attributes['deadline'] = date('Y-m-d H:i:s',strtotime($attributes['deadline']));
-        //dd($attributes);
         $poll->update($attributes);
         return redirect('/polls');
     }
 
     public function destroy(Poll $poll)
     {
-//        $this->authorize('update', $project);
         $poll->delete();
         return redirect('/polls');
     }

@@ -38,4 +38,3 @@ Route::delete('/question/{question}','PollQuestionController@destroy')->middlewa
 
 Route::post('/polls/{poll}/question','PollQuestionController@store'); // don't forget middleware auth control
 Route::post('/polls/question/post', 'QuestionController@updatePositions'); // don't forget middleware auth-control
-Route::post('/fiprcheck/{poll}/{fipr}', 'VoteController@fiprcheck')->where('poll','[0-9]');

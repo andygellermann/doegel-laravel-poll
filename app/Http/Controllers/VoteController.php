@@ -24,6 +24,7 @@ class VoteController extends Controller
 
     public function show(Poll $poll)
     {
+        $poll->listQuestions = ($this->listcheck($poll->id,$poll->cookie()))?0:1; // find existing votes in voting-table = 0 else 1
         $poll->showQuestions = (strtotime($poll->deadline) > time()) ? 1:0;
         $poll->voteSum = Question::where('poll_id',$poll->id)->sum('votes');
         $poll->quotient = ($poll->voteSum > 0) ? 100 / $poll->voteSum:0;
@@ -42,10 +43,10 @@ class VoteController extends Controller
         $Question->vote($request);
         return back();
     }
-    public function fiprcheck(Request $request)
+    public function listcheck($poll_id,$poll_cookie)
     {
         $votes = new Votes();
-        $result = $votes->check($request->poll,$request->fipr);
+        $result = $votes->check($poll_id,$poll_cookie);
         return (!$result) ? 0:$result->id;
     }
 

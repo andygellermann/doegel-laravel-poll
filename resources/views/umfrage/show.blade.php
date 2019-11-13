@@ -7,9 +7,9 @@
     </blockquote>
     <div class="alert alert-success" style="display:none"></div>
     @if ($poll->showQuestions == 1)
-    <div id="votingCheck" style="display:none">
+        @if ($poll->listQuestions == 1)
+    <div id="votingCheck">
         @if ($poll->question->count())
-
             <form method="post" action="/umfrage/{{ $poll->id }}">
                 @csrf
                 @method('PATCH')
@@ -24,7 +24,7 @@
                             <input name="id" value="{{ $question->id }}" type="radio" class="custom-control-input" id="option-{{ $question->id }}" required>
                             <input name="votes" value="{{ $question->votes + 1 }}" type="hidden">
                             <input name="poll_id" value="{{ $poll->id }}" type="hidden">
-                            <input name="fipr_token" value="" type="hidden">
+                            <input name="cookie" value="{{ $poll->cookie() }}" type="hidden">
                             <label class="custom-control-label" for="option-{{ $question->id }}">{{ $question->text }}</label>
                         </div>
                     @endforeach
@@ -35,20 +35,22 @@
                         <a href="/" class="btn btn-primary">zurück</a>
                     </div>
                     <div class="text-right">
-                        <small class="text-right">*Ihre Daten werden anonymisiert gespeichert, um doppelte Abstimmungen zu vermeiden!</small>
+                        <small class="text-right">*Um doppelte Abstimmungen zu vermeiden, wird Ihre Auswahl anonymisiert gespeichert!</small>
                     </div>
                 </div>
             </form>
 
         @endif
     </div>
-    <div id="votingStop" style="display: none">
+    @else
+    <div id="votingStop">
         <div class="alert alert-success mx-3 mt-5 p-5">
             <h5>
-                Vielen Dank, Sie hatten bereits für diese Umfrage abgestimmt!
+                Vielen Dank, Sie haben bereits für diese Umfrage abgestimmt!
             </h5>
         </div>
     </div>
+    @endif
     @else
         <div class="list-group mx-5 my-3">
             <div class="list-group-item custom-control custom-radio pt-3 pl-3 pb-1">

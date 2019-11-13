@@ -22,7 +22,7 @@ class Question extends Model
         DB::table('votes')
             ->insert([
                 'poll_id' => $request->poll_id,
-                'fipr_token' => $request->fipr_token,
+                'fipr_token' => $request->cookie,
                 'created_at' => now()
             ]);
     }

@@ -6,7 +6,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="fipr-token" content="">
+    <meta name="fipr-token" content="{{ $poll->cookie() }}">
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -103,31 +103,5 @@
     </main>
 </div>
 <script src="{{ asset('js/imprint.js') }}"></script>
-<script>
-    var scenarios = ["availableScreenResolution", "canvas", "colorDepth", "cookies", "cpuClass", "deviceDpi", "doNotTrack", "indexedDb", "installedFonts", "language", "localIp", "localStorage", "pixelRatio", "platform", "plugins", "processorCores", "publicIp", "screenResolution", "sessionStorage", "timezoneOffset", "touchSupport", "userAgent", "webGl"];
-    imprint.test(scenarios).then(function(e) {
-        $("meta[name=fipr-token]").attr("content", e), $("input[name=fipr_token]").val(e), console.log(e);
-        var poll_id = {{ $poll->id ?? 0 }};
-        if ( poll_id > 0 && e ){
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type:'POST',
-                url:'/fiprcheck/' + poll_id + '/' + e,
-                success:function(data){
-                    console.log(data);
-                    if(data<1){
-                        $('#votingCheck').show().fadeIn(500);
-                        $('#votingStop').hide();
-                    } else {
-                        $('#votingCheck').hide();
-                        $('#votingStop').show().fadeIn(500);
-                    }
-                }
-            });
-        }
-    });
-</script>
 </body>
 </html>
