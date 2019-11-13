@@ -31,7 +31,7 @@
                 </div>
                 <div class="mx-sm-5 mt-0 mb-3">
                     <div class="text-right">
-                        <strong>Hinweis:</strong>strong> Das Umfrageergebnis wird am {{ date('d.m.Y', strtotime($poll->deadline)) }} auf dieser Seite veröffentlicht!
+                        <strong>Hinweis:</strong> Das Umfrageergebnis wird am {{ date('d.m.Y', strtotime($poll->deadline)) }} auf dieser Seite veröffentlicht!
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn btn-danger">Abstimmen</button>
