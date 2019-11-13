@@ -13,7 +13,7 @@
             <form method="post" action="/umfrage/{{ $poll->id }}">
                 @csrf
                 @method('PATCH')
-                <div class="list-group mx-5 my-3">
+                <div class="list-group mx-sm-5 my-3">
                     <div class="list-group-item custom-control custom-radio pt-3 pl-3 pb-1">
                         <h5>
                             Bitte treffen Sie Ihre Wahl:
@@ -29,7 +29,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="mx-5 mt-0 mb-3">
+                <div class="mx-sm-5 mt-0 mb-3">
                     <div class="text-right">
                         <button type="submit" class="btn btn-danger">Abstimmen</button>
                         <a href="/" class="btn btn-primary">zurück</a>
