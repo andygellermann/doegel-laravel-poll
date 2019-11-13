@@ -52,7 +52,7 @@
                 Vielen Dank, Sie haben bereits für diese Umfrage abgestimmt!
             </h5>
             <p>
-                Das Umfrageergebnis wird am {{ date('d.m.Y', strtotime($poll->deadline)) }} auf dieser Seite veröffentlicht!
+                Das endgültige Umfrageergebnis wird am {{ date('d.m.Y', strtotime($poll->deadline)) }} auf dieser Seite veröffentlicht!
             </p>
         </div>
     </div>
