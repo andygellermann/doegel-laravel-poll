@@ -18,7 +18,7 @@
     <div>
         <div class="list-group mb-3">
             @foreach($polls as $poll)
-                    <a class="list-group-item list-group-item-action" href="/umfrage/{{ $poll->id }}"><strong>{{ $poll->title }}</strong></a>
+                    <a class="list-group-item list-group-item-action" href="/umfrage/{{ $poll->id }}"><strong>&raquo; {{ $poll->title }}</strong></a>
             @endforeach
         </div>
     </div>
