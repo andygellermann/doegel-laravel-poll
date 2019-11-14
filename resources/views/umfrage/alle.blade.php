@@ -15,7 +15,11 @@
                         {{ $poll->title }}
                     </strong>
                     <em>
-                        (bis {{ date('d.m.Y', strtotime($poll->deadline)) }})
+                        @if (strtotime($poll->deadline) > time())
+                        (bis {{ date('d.m.Y H:i', strtotime($poll->deadline)) }} Uhr)
+                        @else
+                        (Ergebnisse ansehen)
+                        @endif
                     </em>
                 </a>
             @endforeach
