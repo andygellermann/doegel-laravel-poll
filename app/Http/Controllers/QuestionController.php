@@ -14,7 +14,6 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //$question = Question::all();
         $question = Question::all()->sortByDesc("position");;
         return view('question.index', compact('question'));
     }

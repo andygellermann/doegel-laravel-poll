@@ -17,7 +17,7 @@ class Question extends Model
     {
         DB::table('questions')
             ->where('id', $request->id)
-            ->update(['votes' => $request->votes]);
+            ->increment('votes');
 
         DB::table('votes')
             ->insert([

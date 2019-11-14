@@ -13,6 +13,8 @@
             <form method="post" action="/umfrage/{{ $poll->id }}">
                 @csrf
                 @method('PATCH')
+                <input name="poll_id" value="{{ $poll->id }}" type="hidden">
+                <input name="cookie" value="{{ $poll->cookie() }}" type="hidden">
                 <div class="list-group mx-sm-5 my-3">
                     <div class="list-group-item custom-control custom-radio pt-3 pl-3 pb-1">
                         <h5>
@@ -22,9 +24,6 @@
                     @foreach ($poll->question as $question)
                         <div class="list-group-item custom-control custom-radio pl-5">
                             <input name="id" value="{{ $question->id }}" type="radio" class="custom-control-input" id="option-{{ $question->id }}" required>
-                            <input name="votes" value="{{ $question->votes + 1 }}" type="hidden">
-                            <input name="poll_id" value="{{ $poll->id }}" type="hidden">
-                            <input name="cookie" value="{{ $poll->cookie() }}" type="hidden">
                             <label class="custom-control-label" for="option-{{ $question->id }}">{{ $question->text }}</label>
                         </div>
                     @endforeach

@@ -12,7 +12,7 @@
     <hr class="my-4 py-4">
     <div class="mx-4">
         <h4>
-            Aktuelle Umfragen:
+            Unsere neuesten Umfragen:
         </h4>
     </div>
     <div>
