@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.page')
 
 @section('title','Andy Gellermann')
 
