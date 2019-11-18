@@ -1,6 +1,6 @@
-# First Laravel Lesson
+# Doegel Laravel Poll
 
-## Steps to start coding on MacOSX (partially Windows...)
+## Steps to start migrate on MacOSX
 
 ### 1. Clone repository
 ### 2. Initialize Laravel/Composer:
