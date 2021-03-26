@@ -1,0 +1,200 @@
+= Schnittstellen-Dokumentation: DMS
+
+    BASE URL: http://localhost:8081
+
+== 1. Bookmarks
+
+Access endpoint for DMS-Bookmarks.
+
+Implement Endpoints
+
+[stripes=even,cols="7s,3",options="header",frame=topbot]
+|===
+|Endpoint
+|Method
+
+|/bookmarks
+|GET
+
+|/bookmarks/{id}
+|GET
+
+|/bookmarks/
+|POST
+
+|/bookmarks/{id}
+|DELETE
+|===
+
+
+
+=== 1.1 Payload
+[stripes=even,cols="2s,2,4,2",options="header",frame=topbot]
+|===
+|Json Key
+|Datatype
+|Details
+|Requirement
+
+|id
+|int(64)
+|
+|mandatory
+
+|createdAt
+|string
+|
+|optional
+
+|updatedAt
+|string
+|
+|optional
+
+|createdBy
+|string
+|
+|optional
+
+|updatedBy
+|string
+|
+|optional
+
+|userId
+|int(64)
+|
+|optional
+
+|watch
+|boolean
+|
+|optional
+|===
+
+=== 1.2 Payload-Example
+
+==== 1.2.1 GET-Request
+
+[source,shell script]
+----
+curl -X GET "http://localhost:8081/bookmarks" -H  "accept: */*"
+----
+
+==== 1.2.2 GET-Response
+
+[source,json]
+----
+{
+  "bookmarks": [
+    {
+      "id": 1,
+      "createdAt": "2021-03-26T10:05:55.301Z",
+      "updatedAt": "2021-03-26T10:05:55.301Z",
+      "createdBy": "Robert.Koch",
+      "updatedBy": "Rudolf.Virchow",
+      "userId": 1,
+      "documentId": 1,
+      "watch": false
+    }
+  ],
+  "meta": {
+    "page": 0,
+    "pageCount": 0,
+    "itemsPerPage": 0,
+    "itemCount": 0,
+    "sortBy": "string",
+    "sortOrder": "string"
+  }
+}
+----
+
+==== 1.2.3 POST-Request
+[source,json]
+----
+curl -X POST 'http://localhost:8081/bookmarks' -H \
+'accept: */*' -H  'Content-Type: application/json' -d \
+'{
+  "userId":1,
+  "documentId":1,
+  "watch":false
+}'
+----
+
+
+==== 1.2.4 POST-Response
+
+[source,json]
+----
+{
+  "bookmarks": [
+    {
+      "id": 1,
+      "createdAt": "2021-03-26T10:05:55.301Z",
+      "updatedAt": "2021-03-26T10:05:55.301Z",
+      "createdBy": "Robert.Koch",
+      "updatedBy": "Rudolf.Virchow",
+      "userId": 1,
+      "documentId": 1,
+      "watch": false
+    }
+  ],
+  "meta": {
+    "page": 0,
+    "pageCount": 0,
+    "itemsPerPage": 0,
+    "itemCount": 0,
+    "sortBy": "string",
+    "sortOrder": "string"
+  }
+}
+----
+
+=== 1.3 Error-Messages
+
+[stripes=even,cols="2s,4,6",options="header",frame=topbot]
+|===
+|Status Code
+|Message
+|Why
+
+|201
+|bookmark created
+|-
+
+|404
+|bookmark not found
+|-
+|===
+
+=== 1.4 Example JSON-Data
+[source,json]
+----
+{
+    "bookmark": {
+        "id":1,
+        "createdAt":"2021-03-26T10:12:23.584+00:00",
+        "updatedAt":"2021-03-26T10:12:23.584+00:00",
+        "createdBy":null,
+        "updatedBy":null,
+        "userId":1,
+        "documentId":1,
+        "watch":false
+    }
+}
+----
+
+==== 1.4.1 Datentypen (JSON-Data)
+[source,json]
+----
+{
+    "id":int64,
+    "createdAt":string,
+    "updatedAt":string,
+    "createdBy":string,
+    "updatedBy":string,
+    "userId":int64,
+    "documentId":int64,
+    "watch":bolean
+}
+----
